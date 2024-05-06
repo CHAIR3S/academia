@@ -1,0 +1,52 @@
+.image-upload-wrapper {
+    margin-top: 2vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .image-upload-circle {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border: 2px dashed #d6d6d6;
+      overflow: hidden;
+      position: relative;
+  
+      i {
+        font-size: 24px;
+        color: #666;
+        z-index: 1;
+      }
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+  
+      &:hover {
+        background-color: #e8e8e8;
+      }
+    }
+  }
+
+.w-40v{
+  width: 40vh !important;
+}
+  
+
+@media screen and (max-width: 700px) {
+  
+    .w-40v{
+      width: 37vh !important;
+    }
+}

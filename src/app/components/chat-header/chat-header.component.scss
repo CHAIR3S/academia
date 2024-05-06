@@ -1,0 +1,33 @@
+
+
+
+.header-spacer{
+    flex: 1 1 auto;
+}
+
+
+.mat-toolbar button {
+    width: 7vh;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// .mat-toolbar button:hover{
+//     background-color: rgba(210, 210, 210, 0.429);
+// }
+
+// .mat-toolbar button:focus {
+//     border: 0 !important;
+//     border-color: none !important;
+//     outline: none;
+//  }
+
+  
+  :host ::ng-deep mat-toolbar button {
+    all: initial;
+  }
+
+
+  
