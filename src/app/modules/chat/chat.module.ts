@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './chat.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChatHeaderComponent } from 'src/app/components/chat-header/chat-header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'
 import { ChatAreaComponent } from 'src/app/components/chat-area/chat-area.component';
 import { ConversationListComponent } from 'src/app/components/conversation-list/conversation-list.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { ApiAcademiaInterceptor } from 'src/app/interceptor/api-academia.interceptor';
 
 
 @NgModule({
@@ -23,7 +26,8 @@ import { ConversationListComponent } from 'src/app/components/conversation-list/
     ChatRoutingModule,
     FormsModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ]
 })
 export class ChatModule { }

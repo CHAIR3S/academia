@@ -44,6 +44,12 @@
 
 
 
+:host ::ng-deep  button {
+    all: initial;
+    cursor: pointer;
+  }
+
+
 [data-theme="purple"] {
  --theme-color: #9f7aea;
  --button-color: #9f7aea;

@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterOutlet } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthUserDTO } from 'src/app/model/AuthUserDTO';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit{
     private _loginService: LoginService,
     private _snackBar: MatSnackBar,
     private _router: Router,
-    private _cookiesService: CookieService
+    private _cookiesService: CookieService,
+    private _usuarioService: UsuarioService
   ) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit{
       this._loginService.autenticar(credenciales).subscribe(respuesta => {
         const userJSON = JSON.stringify(respuesta.object.usuario);
 
+          this._usuarioService.usuario = respuesta.object.usuario;
 
           const expirationDate = new Date();
           expirationDate.setTime(expirationDate.getTime() + (2 * 60 * 60 * 1000)); // 2 horas en milisegundos
@@ -50,7 +53,9 @@ export class LoginComponent implements OnInit{
           // Establece la cookie con la fecha de expiración
           console.log(respuesta)
           this._cookiesService.set('token', respuesta.object.jwt, { expires: expirationDate, sameSite: 'Lax' })
-          this._cookiesService.set('user', userJSON, { expires: expirationDate, sameSite: 'Lax' })
+          // this._cookiesService.set('user', userJSON, { expires: expirationDate})
+          localStorage.setItem('usuario', userJSON)
+
 
           this._router.navigate(['/chat']);
         },

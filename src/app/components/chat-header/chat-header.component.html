@@ -4,10 +4,9 @@
   </button>
   <span>AcademIA</span>
   <span class="header-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>person_pin</mat-icon>
-  </button>
+  </button> -->
+  
+  <div class="user-image" [style.background-image]="'url(' + userImageBase64 + ')'"></div>
 </mat-toolbar>

@@ -17,16 +17,20 @@ export class ApiAcademiaInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     
+    // console.log('interceptor')
+
     if(this._cookiesService.check('token')){
       const token = this._cookiesService.get('token')
   
       const modifiedReq = request.clone({
-        headers: request.headers.set('Authorization', token)
+        headers: request.headers.set('Authorization', 'Bearer ' + token)
       });
+      // console.log(modifiedReq)
 
       return next.handle(modifiedReq);
     }
     
+    // console.log(request)
     return next.handle(request);
   }
 }

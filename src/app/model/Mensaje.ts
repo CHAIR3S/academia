@@ -1,16 +1,16 @@
 import { Chat } from "./Chat";
 
-export interface Mensaje {
+export class Mensaje {
 
-	idMensaje: number;
+	idMensaje: number = 0;
 	
-	texto: string;
+	texto: string = '';
 
-	fecha: Date;
+	fecha: Date = new Date();
 	
-	archivo?: string;    
+	archivo?: string = '';    
 	
-	ia: boolean;
+	ia: boolean = false;
 
 	chat?: Chat;
 

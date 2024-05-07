@@ -1,13 +1,13 @@
 <div class="">
-    <app-chat-header></app-chat-header>
+    <app-chat-header [usuario]="usuarioObjeto"></app-chat-header>
 
     <div class="wrapper">
 
       
-      <app-conversation-list style="display: flex;"></app-conversation-list>
+      <app-conversation-list style="display: flex;"  [usuario]="usuarioObjeto"></app-conversation-list>
 
 
-      <app-chat-area style="width: 100%;"></app-chat-area>
+      <app-chat-area style="width: 100%;" [usuario]="usuarioObjeto"></app-chat-area>
 
      
 

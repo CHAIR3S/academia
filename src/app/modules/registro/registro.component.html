@@ -113,7 +113,9 @@
                   </div>
                   <div class="text-muted font-italic">
                     <small>Seguridad de contraseña:
-                      <span class="text-success font-weight-700">Fuerte</span>
+                      <span class="font-weight-700" style="color: red;" *ngIf="this.registerForm.value.password.length <= 5">Debil</span>
+                      <span class="font-weight-700" style="color: rgb(255, 217, 0);" *ngIf="this.registerForm.value.password.length > 5 && this.registerForm.value.password.length <= 10">Media</span>
+                      <span class="text-success font-weight-700" *ngIf="this.registerForm.value.password.length > 10">Fuerte</span>
                     </small>
                   </div>
 

@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/model/Usuario';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent {
+export class ChatComponent implements OnInit {
+
+  usuarioObjeto: Usuario = new Usuario();
+
+
   messages = [
     { username: 'Madison Jones', text: 'What time was our meet', date: '20m', online: true, profileUrl: 'https://example.com/image1.png', owner: '', profileImage: 'dfdsfsdvsd', seenTime: 232, texts: 'dfdsfs' },
     // Más mensajes aquí...
@@ -28,5 +33,18 @@ export class ChatComponent {
 
   toggleTheme() {
     // Lógica para cambiar el tema
+  }
+
+  ngOnInit(): void {
+
+    const usuarioJSON = localStorage.getItem('usuario')
+    
+    
+    if(usuarioJSON){
+      this.usuarioObjeto = JSON.parse(usuarioJSON);
+    }
+
+    // console.log(this.usuarioObjeto)
+    
   }
 }

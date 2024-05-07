@@ -20,5 +20,9 @@ export class Usuario {
 
 	foto: string = '';
 
-	tipoAprendizaje: TipoAprendizaje = new TipoAprendizaje;
+    tipoAprendizaje?: TipoAprendizaje | null = null;
+
+    constructor() {
+        this.tipoAprendizaje = null; 
+    }
 }
