@@ -9,6 +9,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiAcademiaInterceptor } from './interceptor/api-academia.interceptor';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ApiAcademiaInterceptor } from './interceptor/api-academia.interceptor';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     CookieService,

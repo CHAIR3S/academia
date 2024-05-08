@@ -1,0 +1,35 @@
+.dialog-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 16px;
+  }
+  
+  .dialog-content {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 16px;
+  }
+  
+  .dialog-actions {
+    text-align: right;
+  }
+  
+  .custom-button {
+    background-color: #338ee3; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  .custom-button:hover {
+    background-color: #338ee3;
+  }
+  

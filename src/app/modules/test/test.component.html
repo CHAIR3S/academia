@@ -1,0 +1,414 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-container">
+      <!-- Pregunta 1 -->
+      <div class="question">
+        <mat-label>1. ¿Cuál de las siguientes actividades disfrutas más?</mat-label>
+        <mat-radio-group formControlName="pregunta1" class="radio">
+          <mat-radio-button value="a">Escuchar música</mat-radio-button>
+          <mat-radio-button value="b">Ver películas</mat-radio-button>
+          <mat-radio-button value="c">Bailar con buena música</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 2 -->
+      <div class="question">
+        <mat-label>2. ¿Qué programa de televisión prefieres?</mat-label>
+        <mat-radio-group formControlName="pregunta2" class="radio">
+          <mat-radio-button value="a">Reportajes de descubrimientos y lugares</mat-radio-button>
+          <mat-radio-button value="b">Cómico y de entretenimiento</mat-radio-button>
+          <mat-radio-button value="c">Noticias del mundo</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 3 -->
+      <div class="question">
+        <mat-label>3. Cuando conversas con otra persona, tú:</mat-label>
+        <mat-radio-group formControlName="pregunta3" class="radio">
+          <mat-radio-button value="a">La escuchas atentamente</mat-radio-button>
+          <mat-radio-button value="b">La observas</mat-radio-button>
+          <mat-radio-button value="c">Tiendes a tocarla</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 4 -->
+      <div class="question">
+        <mat-label>4. Si pudieras adquirir uno de los siguientes artículos, ¿cuál elegirías?</mat-label>
+        <mat-radio-group formControlName="pregunta4" class="radio">
+          <mat-radio-button value="a">Un jacuzzi</mat-radio-button>
+          <mat-radio-button value="b">Un estéreo</mat-radio-button>
+          <mat-radio-button value="c">Un televisor</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 5 -->
+      <div class="question">
+        <mat-label>5. ¿Qué prefieres hacer un sábado por la tarde?</mat-label>
+        <mat-radio-group formControlName="pregunta5" class="radio">
+          <mat-radio-button value="a">Quedarte en casa</mat-radio-button>
+          <mat-radio-button value="b">Ir a un concierto</mat-radio-button>
+          <mat-radio-button value="c">Ir al cine</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 6 -->
+      <div class="question">
+        <mat-label>6. ¿Qué tipo de exámenes se te facilitan más?</mat-label>
+        <mat-radio-group formControlName="pregunta6" class="radio">
+          <mat-radio-button value="a">Examen oral</mat-radio-button>
+          <mat-radio-button value="b">Examen escrito</mat-radio-button>
+          <mat-radio-button value="c">Examen de opción múltiple</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 7 -->
+      <div class="question">
+        <mat-label>7. ¿Cómo te orientas más fácilmente?</mat-label>
+        <mat-radio-group formControlName="pregunta7" class="radio">
+          <mat-radio-button value="a">Mediante el uso de un mapa</mat-radio-button>
+          <mat-radio-button value="b">Pidiendo indicaciones</mat-radio-button>
+          <mat-radio-button value="c">A través de la intuición</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 8 -->
+      <div class="question">
+        <mat-label>8. ¿En qué prefieres ocupar tu tiempo en un lugar de descanso?</mat-label>
+        <mat-radio-group formControlName="pregunta8" class="radio">
+          <mat-radio-button value="a">Pensar</mat-radio-button>
+          <mat-radio-button value="b">Caminar por los alrededores</mat-radio-button>
+          <mat-radio-button value="c">Descansar</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 9 -->
+      <div class="question">
+        <mat-label>9. ¿Qué te halaga más?</mat-label>
+        <mat-radio-group formControlName="pregunta9" class="radio">
+          <mat-radio-button value="a">Que te digan que tienes buen aspecto</mat-radio-button>
+          <mat-radio-button value="b">Que te digan que tienes un trato muy agradable</mat-radio-button>
+          <mat-radio-button value="c">Que te digan que tienes una conversación interesante</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 10 -->
+      <div class="question">
+        <mat-label>10. ¿Cuál de estos ambientes te atrae más?</mat-label>
+        <mat-radio-group formControlName="pregunta10" class="radio">
+          <mat-radio-button value="a">Uno en el que se sienta un clima agradable</mat-radio-button>
+          <mat-radio-button value="b">Uno en el que se escuchen las olas del mar</mat-radio-button>
+          <mat-radio-button value="c">Uno con una hermosa vista al océano</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 11 -->
+      <div class="question">
+        <mat-label>11. ¿De qué manera se te facilita aprender algo?</mat-label>
+        <mat-radio-group formControlName="pregunta11" class="radio">
+          <mat-radio-button value="a">Repitiendo en voz alta</mat-radio-button>
+          <mat-radio-button value="b">Escribiéndolo varias veces</mat-radio-button>
+          <mat-radio-button value="c">Relacionándolo con algo divertido</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 12 -->
+      <div class="question">
+        <mat-label>12. ¿A qué evento preferirías asistir?</mat-label>
+        <mat-radio-group formControlName="pregunta12" class="radio">
+          <mat-radio-button value="a">A una reunión social</mat-radio-button>
+          <mat-radio-button value="b">A una exposición de arte</mat-radio-button>
+          <mat-radio-button value="c">A una conferencia</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Pregunta 13 -->
+      <div class="question">
+        <mat-label>13. ¿De qué manera te formas una opinión de otras personas?</mat-label>
+        <mat-radio-group formControlName="pregunta13" class="radio">
+          <mat-radio-button value="a">Por la sinceridad en su voz</mat-radio-button>
+          <mat-radio-button value="b">Por la forma de estrecharte la mano</mat-radio-button>
+          <mat-radio-button value="c">Por su aspecto</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+
+    <!-- Pregunta 14 -->
+    <div class="question">
+        <mat-label>14. ¿Cómo te consideras?</mat-label>
+        <mat-radio-group formControlName="pregunta14" class="radio">
+        <mat-radio-button value="a">Atlético</mat-radio-button>
+        <mat-radio-button value="b">Intelectual</mat-radio-button>
+        <mat-radio-button value="c">Sociable</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 15 -->
+    <div class="question">
+        <mat-label>15. ¿Qué tipo de películas te gustan más?</mat-label>
+        <mat-radio-group formControlName="pregunta15" class="radio">
+        <mat-radio-button value="a">Clásicas</mat-radio-button>
+        <mat-radio-button value="b">De acción</mat-radio-button>
+        <mat-radio-button value="c">De amor</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 16 -->
+    <div class="question">
+        <mat-label>16. ¿Cómo prefieres mantenerte en contacto con otra persona?</mat-label>
+        <mat-radio-group formControlName="pregunta16" class="radio">
+        <mat-radio-button value="a">Por correo electrónico</mat-radio-button>
+        <mat-radio-button value="b">Tomando un café juntos</mat-radio-button>
+        <mat-radio-button value="c">Por teléfono</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 17 -->
+    <div class="question">
+        <mat-label>17. ¿Cuál de las siguientes frases se identifican más contigo?</mat-label>
+        <mat-radio-group formControlName="pregunta17" class="radio">
+        <mat-radio-button value="a">Me gusta que mi coche se sienta bien al conducirlo</mat-radio-button>
+        <mat-radio-button value="b">Percibo hasta el mas ligero ruido que hace mi coche</mat-radio-button>
+        <mat-radio-button value="c">Es importante que mi coche esté limpio por fuera y por dentro</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 18 -->
+    <div class="question">
+        <mat-label>18. ¿Cómo prefieres pasar el tiempo con tu novia o novio?</mat-label>
+        <mat-radio-group formControlName="pregunta18" class="radio">
+        <mat-radio-button value="a">Conversando</mat-radio-button>
+        <mat-radio-button value="b">Acariciándose</mat-radio-button>
+        <mat-radio-button value="c">Mirando algo juntos</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 19 -->
+    <div class="question">
+        <mat-label>19. Si no encuentras las llaves en una bolsa</mat-label>
+        <mat-radio-group formControlName="pregunta19" class="radio">
+        <mat-radio-button value="a">La buscas mirando</mat-radio-button>
+        <mat-radio-button value="b">Sacudes la bolsa para oír el ruido</mat-radio-button>
+        <mat-radio-button value="c">Buscas al tacto</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 20 -->
+    <div class="question">
+        <mat-label>20. Cuando tratas de recordar algo, ¿cómo lo haces?</mat-label>
+        <mat-radio-group formControlName="pregunta20" class="radio">
+        <mat-radio-button value="a">A través de imágenes</mat-radio-button>
+        <mat-radio-button value="b">A través de emociones</mat-radio-button>
+        <mat-radio-button value="c">A través de sonidos</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 21 -->
+    <div class="question">
+        <mat-label>21. Si tuvieras dinero, ¿qué harías?</mat-label>
+        <mat-radio-group formControlName="pregunta21" class="radio">
+        <mat-radio-button value="a">Comprar una casa</mat-radio-button>
+        <mat-radio-button value="b">Viajar y conocer el mundo</mat-radio-button>
+        <mat-radio-button value="c">Adquirir un estudio de grabación</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 22 -->
+    <div class="question">
+        <mat-label>22. ¿Con qué frase te identificas más?</mat-label>
+        <mat-radio-group formControlName="pregunta22" class="radio">
+        <mat-radio-button value="a">Reconozco a las personas por su voz</mat-radio-button>
+        <mat-radio-button value="b">No recuerdo el aspecto de la gente</mat-radio-button>
+        <mat-radio-button value="c">Recuerdo el aspecto de alguien, pero no su nombre</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 23 -->
+    <div class="question">
+        <mat-label>23. Si tuvieras que quedarte en una isla desierta, ¿qué preferirías llevar contigo?</mat-label>
+        <mat-radio-group formControlName="pregunta23" class="radio">
+        <mat-radio-button value="a">Algunos buenos libros</mat-radio-button>
+        <mat-radio-button value="b">Un radio portátil de alta frecuencia</mat-radio-button>
+        <mat-radio-button value="c">Golosinas y comida enlatada</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+
+        <!-- Pregunta 24 -->
+    <div class="question">
+        <mat-label>24. ¿Cuál de los siguientes entretenimientos prefieres?</mat-label>
+        <mat-radio-group formControlName="pregunta24" class="radio">
+        <mat-radio-button value="a">Tocar un instrumento musical</mat-radio-button>
+        <mat-radio-button value="b">Sacar fotografías</mat-radio-button>
+        <mat-radio-button value="c">Actividades manuales</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 25 -->
+    <div class="question">
+        <mat-label>25. ¿Cómo es tu forma de vestir?</mat-label>
+        <mat-radio-group formControlName="pregunta25" class="radio">
+        <mat-radio-button value="a">Impecable</mat-radio-button>
+        <mat-radio-button value="b">Informal</mat-radio-button>
+        <mat-radio-button value="c">Muy informal</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 26 -->
+    <div class="question">
+        <mat-label>26. ¿Qué es lo que más te gusta de una fogata nocturna?</mat-label>
+        <mat-radio-group formControlName="pregunta26" class="radio">
+        <mat-radio-button value="a">El calor del fuego y los bombones asados</mat-radio-button>
+        <mat-radio-button value="b">El sonido del fuego quemando la leña</mat-radio-button>
+        <mat-radio-button value="c">Mirar el fuego y las estrellas</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 27 -->
+    <div class="question">
+        <mat-label>27. ¿Cómo se te facilita entender algo?</mat-label>
+        <mat-radio-group formControlName="pregunta27" class="radio">
+        <mat-radio-button value="a">Cuando te lo explican verbalmente</mat-radio-button>
+        <mat-radio-button value="b">Cuando utilizan medios visuales</mat-radio-button>
+        <mat-radio-button value="c">Cuando se realiza a través de alguna actividad</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 28 -->
+    <div class="question">
+        <mat-label>28. ¿Por qué te distingues?</mat-label>
+        <mat-radio-group formControlName="pregunta28" class="radio">
+        <mat-radio-button value="a">Por tener una gran intuición</mat-radio-button>
+        <mat-radio-button value="b">Por ser un buen conversador</mat-radio-button>
+        <mat-radio-button value="c">Por ser un buen observador</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 29 -->
+    <div class="question">
+        <mat-label>29. ¿Qué es lo que más disfrutas de un amanecer?</mat-label>
+        <mat-radio-group formControlName="pregunta29" class="radio">
+        <mat-radio-button value="a">La emoción de vivir un nuevo día</mat-radio-button>
+        <mat-radio-button value="b">Las tonalidades del cielo</mat-radio-button>
+        <mat-radio-button value="c">El canto de las aves</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 30 -->
+    <div class="question">
+        <mat-label>30. Si pudieras elegir ¿qué preferirías ser?</mat-label>
+        <mat-radio-group formControlName="pregunta30" class="radio">
+        <mat-radio-button value="a">Un gran médico</mat-radio-button>
+        <mat-radio-button value="b">Un gran músico</mat-radio-button>
+        <mat-radio-button value="c">Un gran pintor</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 31 -->
+    <div class="question">
+        <mat-label>31. Cuando eliges tu ropa, ¿qué es lo más importante para ti?</mat-label>
+        <mat-radio-group formControlName="pregunta31" class="radio">
+        <mat-radio-button value="a">Que sea adecuada</mat-radio-button>
+        <mat-radio-button value="b">Que luzca bien</mat-radio-button>
+        <mat-radio-button value="c">Que sea cómoda</mat-radio-button>
+        </mat-radio-group>
+    </div>
+  
+
+    <!-- Pregunta 32 -->
+    <div class="question">
+        <mat-label>32. ¿Qué es lo que más disfrutas de una habitación?</mat-label>
+        <mat-radio-group formControlName="pregunta32" class="radio">
+        <mat-radio-button value="a">Que sea silenciosa</mat-radio-button>
+        <mat-radio-button value="b">Que sea confortable</mat-radio-button>
+        <mat-radio-button value="c">Que esté limpia y ordenada</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 33 -->
+    <div class="question">
+        <mat-label>33. ¿Qué es más sexy para ti?</mat-label>
+        <mat-radio-group formControlName="pregunta33" class="radio">
+        <mat-radio-button value="a">Una iluminación tenue</mat-radio-button>
+        <mat-radio-button value="b">El perfume</mat-radio-button>
+        <mat-radio-button value="c">Cierto tipo de música</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 34 -->
+    <div class="question">
+        <mat-label>34. ¿A qué tipo de espectáculo preferirías asistir?</mat-label>
+        <mat-radio-group formControlName="pregunta34" class="radio">
+        <mat-radio-button value="a">A un concierto de música</mat-radio-button>
+        <mat-radio-button value="b">A un espectáculo de magia</mat-radio-button>
+        <mat-radio-button value="c">A una muestra gastronómica</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 35 -->
+    <div class="question">
+        <mat-label>35. ¿Qué te atrae más de una persona?</mat-label>
+        <mat-radio-group formControlName="pregunta35" class="radio">
+        <mat-radio-button value="a">Su trato y forma de ser</mat-radio-button>
+        <mat-radio-button value="b">Su aspecto físico</mat-radio-button>
+        <mat-radio-button value="c">Su conversación</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 36 -->
+    <div class="question">
+        <mat-label>36. Cuando vas de compras, ¿en dónde pasas mucho tiempo?</mat-label>
+        <mat-radio-group formControlName="pregunta36" class="radio">
+        <mat-radio-button value="a">En una librería</mat-radio-button>
+        <mat-radio-button value="b">En una perfumería</mat-radio-button>
+        <mat-radio-button value="c">En una tienda de discos</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 37 -->
+    <div class="question">
+        <mat-label>37. ¿Cuál es tu idea de una noche romántica?</mat-label>
+        <mat-radio-group formControlName="pregunta37" class="radio">
+        <mat-radio-button value="a">A la luz de las velas</mat-radio-button>
+        <mat-radio-button value="b">Con música romántica</mat-radio-button>
+        <mat-radio-button value="c">Bailando tranquilamente</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 38 -->
+    <div class="question">
+        <mat-label>38. ¿Qué es lo que más disfrutas de viajar?</mat-label>
+        <mat-radio-group formControlName="pregunta38" class="radio">
+        <mat-radio-button value="a">Conocer personas y hacer nuevos amigos</mat-radio-button>
+        <mat-radio-button value="b">Conocer lugares nuevos</mat-radio-button>
+        <mat-radio-button value="c">Aprender sobre otras costumbres</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 39 -->
+    <div class="question">
+        <mat-label>39. Cuando estás en la ciudad, ¿qué es lo que más echas de menos del campo?</mat-label>
+        <mat-radio-group formControlName="pregunta39" class="radio">
+        <mat-radio-button value="a">El aire limpio y refrescante</mat-radio-button>
+        <mat-radio-button value="b">Los paisajes</mat-radio-button>
+        <mat-radio-button value="c">La tranquilidad</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <!-- Pregunta 40 -->
+    <div class="question">
+        <mat-label>40. Si te ofrecieran uno de los siguientes empleos, ¿cuál elegirías?</mat-label>
+        <mat-radio-group formControlName="pregunta40" class="radio">
+        <mat-radio-button value="a">Director de una estación de radio</mat-radio-button>
+        <mat-radio-button value="b">Director de un club deportivo</mat-radio-button>
+        <mat-radio-button value="c">Director de una revista</mat-radio-button>
+        </mat-radio-group>
+    </div>
+  
+  
+
+
+
+  
+      <button mat-raised-button color="primary" type="submit">Enviar respuestas</button>
+    </div>
+  </form>
+  

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Usuario } from 'src/app/model/Usuario';
 
@@ -14,6 +15,8 @@ export class ChatHeaderComponent implements OnInit {
   @Input() usuario: any;
 
   constructor(
+    private _cookieService: CookieService,
+    private _router: Router
   ){
 
   }
@@ -28,6 +31,12 @@ export class ChatHeaderComponent implements OnInit {
 
   onSearch(){
     
+  }
+
+  cerrarSesion(){
+    localStorage.removeItem('usuario')
+    this._cookieService.delete('token')
+    this._router.navigate(['login'])
   }
 
 }

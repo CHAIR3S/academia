@@ -22,4 +22,8 @@ export class UsuarioService {
     return this.http.post(this.baseUrl + this.userUrl, usuario);
   }
 
+  update(usuario: Usuario): Observable<any>{
+    return this.http.put(this.baseUrl + this.userUrl, usuario);
+  }
+
 }

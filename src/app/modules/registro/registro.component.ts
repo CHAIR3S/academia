@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/model/Usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -21,7 +22,8 @@ export class RegistroComponent {
 
   constructor(
     private _snackBar: MatSnackBar,
-    private _usuarioService: UsuarioService
+    private _usuarioService: UsuarioService,
+    private _router: Router
   ) {
     this.registerForm = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -78,6 +80,18 @@ export class RegistroComponent {
       this._usuarioService.save(registro).subscribe(respuesta => {
         // console.log(respuesta)
         this._usuarioService.usuario = respuesta.object;
+        
+
+        this.openSnackBar(respuesta.mensaje);
+
+
+        this._router.navigate(['/login'])
+        
+      },
+      (error: any) => {
+        // console.log(error.error.mensaje)
+        // console.log(error)
+        this.openSnackBar(error.error.mensaje);
       })
       
     }else{

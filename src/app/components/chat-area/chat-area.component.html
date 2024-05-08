@@ -120,12 +120,13 @@
 
 
 <div class="chat-area" style="height: 90vh; margin-top: 2.5vh;">
+  
   <div class="chat-area-main">
 
     <div *ngFor="let mensaje of mensajes" class="chat-msg" [ngClass]="{'owner': !mensaje.ia}" style="margin-top: 1vh;">
       <div class="chat-msg-profile">
         <img class="chat-msg-img" [src]="usuario.foto" alt="" />
-        <div class="chat-msg-date">{{ mensaje.fecha }}</div>
+        <div class="chat-msg-date" [textContent]="this.formatDate(mensaje.fecha.toString())">{{ mensaje.fecha }}</div>
       </div>
       <div class="chat-msg-content">
         <!-- Display text or image based on 'archivo' content -->
