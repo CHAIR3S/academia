@@ -17,6 +17,9 @@ export class ChatService {
   
   chatList: Chat[] = [];
 
+
+  navbar: boolean = false;
+
   // chatActual: Chat = new Chat();
 
   private chatActualSource = new Subject<Chat>();

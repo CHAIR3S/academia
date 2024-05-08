@@ -56,6 +56,10 @@
  --button-bg-color: rgba(237, 137, 54, 0.12);
 }
 
+.slide-right {
+    // transform: translateX(100%); /* Ajusta el valor según el desplazamiento deseado */
+  }
+
 .dark-mode {
  --body-bg-color: #1d1d1d;
  --theme-bg-color: #27292d;
@@ -339,6 +343,11 @@ html {
   margin-right: 2px;
  }
 }
+
+
+
+
+
 
 .add {
  position: fixed;
@@ -787,4 +796,9 @@ html {
    padding-right: 10px;
   }
  }
+
+ 
+.slide-right {
+    transform: translateX(300%); /* Ajusta el valor según el desplazamiento deseado */
+  }
 }
