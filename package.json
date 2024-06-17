@@ -25,7 +25,6 @@
     "angular-oauth2-oidc": "^17.0.2",
     "bootstrap": "^4.1.3",
     "ngx-cookie-service": "^16.1.0",
-    "openai": "^4.42.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
