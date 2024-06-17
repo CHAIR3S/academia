@@ -41,4 +41,9 @@ export class ChatHeaderComponent implements OnInit {
     this._router.navigate(['login'])
   }
 
+  openNavbar(){
+    this._chatService.navbar = !this._chatService.navbar;
+    console.log('navbar');
+  }
+
 }

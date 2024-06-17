@@ -11,6 +11,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { ApiAcademiaInterceptor } from './interceptor/api-academia.interceptor';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,11 @@ import {MatInputModule} from '@angular/material/input';
     NgbModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    OAuthModule.forRoot()
   ],
   providers: [
+    AuthenticationService,
     CookieService,
     {
       provide: HTTP_INTERCEPTORS,

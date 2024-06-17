@@ -38,18 +38,6 @@
  );
 }
 
-.width-total{
-    width: 100% !important;
-}
-
-
-
-:host ::ng-deep  button {
-    all: initial;
-    cursor: pointer;
-  }
-
-
 [data-theme="purple"] {
  --theme-color: #9f7aea;
  --button-color: #9f7aea;
@@ -67,6 +55,7 @@
  --button-color: #ed8936;
  --button-bg-color: rgba(237, 137, 54, 0.12);
 }
+
 
 .dark-mode {
  --body-bg-color: #1d1d1d;
@@ -104,6 +93,12 @@
  --detail-font-color: var(--input-chat-color);
 }
 
+:host ::ng-deep button {
+    all: initial;
+}
+
+
+
 .blue {
  background-color: #0086ff;
 }
@@ -129,22 +124,24 @@ img {
  max-width: 100%;
 }
 
-
-
-
-
-
-
-@media (max-width: 1120px) {
- .detail-area {
-  display: none;
- }
+body {
+ background-color: var(--body-bg-color);
+ font-family: var(--body-font);
+ color: var(--body-color);
 }
 
+html {
+ box-sizing: border-box;
+ -webkit-font-smoothing: antialiased;
+}
+
+
 @media (max-width: 780px) {
- .conversation-area {
-  display: none;
- }
+  
+.display-navbar{
+    display: none;
+}
+
  .search-bar {
   margin-left: 0;
   flex-grow: 1;
@@ -152,4 +149,10 @@ img {
    padding-right: 10px;
   }
  }
+
+ 
+.slide-right {
+    display: block;
+    transform: translateX(300%); /* Ajusta el valor según el desplazamiento deseado */
+  }
 }

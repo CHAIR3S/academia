@@ -8,7 +8,7 @@ import { MensajeService } from 'src/app/services/mensaje.service';
 @Component({
   selector: 'app-conversation-list',
   templateUrl: './conversation-list.component.html',
-  styleUrls: ['./conversation-list.component.scss']
+  styleUrls: ['./conversation-list.component.scss', './conversation-list.component.scss']
 })
 export class ConversationListComponent implements OnInit{
 
