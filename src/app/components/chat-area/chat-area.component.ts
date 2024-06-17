@@ -44,10 +44,6 @@ export class ChatAreaComponent {
     })
 
 
-    // if(_mensajeService.mensajes != null && _mensajeService.mensajes != undefined){
-    //   this.mensajes = _mensajeService.mensajes
-    // }
-
 
     this.subscription = this._chatService.messages$.subscribe({
       next: (msg) => {
