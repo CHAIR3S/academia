@@ -40,13 +40,8 @@
   }
 
 .w-40v{
-  width: 40vh !important;
+  // width: 31vh !important;
+  position: relative;
+  width: 100%;
 }
   
-
-@media screen and (max-width: 700px) {
-  
-    .w-40v{
-      width: 37vh !important;
-    }
-}
