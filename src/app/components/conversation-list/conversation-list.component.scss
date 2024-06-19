@@ -139,3 +139,25 @@
    font-weight: 500;
   }
  }
+
+ 
+@media (max-width: 780px) {
+  
+  .display-navbar{
+      display: none;
+  }
+  
+   .search-bar {
+    margin-left: 0;
+    flex-grow: 1;
+    input {
+     padding-right: 10px;
+    }
+   }
+  
+   
+  .slide-right {
+      display: block;
+      transform: translateX(300%); /* Ajusta el valor según el desplazamiento deseado */
+    }
+  }
