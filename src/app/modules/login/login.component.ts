@@ -85,14 +85,14 @@ export class LoginComponent implements OnInit{
           // this._cookiesService.set('user', userJSON, { expires: expirationDate})
           localStorage.setItem('usuario', userJSON)
 
-          this.openSnackBar(respuesta.mensaje);
+          this.openSnackBar("Sesión iniciada correctamente");
 
           this._router.navigate(['/chat']);
         },
         (error: any) => {
           // console.log(error.error.mensaje)
           // console.log(error)
-          this.openSnackBar(error.error.mensaje);
+          this.openSnackBar("Correo o contraseña incorrecta");
         }
       )
     }else{

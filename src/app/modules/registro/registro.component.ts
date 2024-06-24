@@ -90,8 +90,8 @@ export class RegistroComponent {
       },
       (error: any) => {
         // console.log(error.error.mensaje)
-        // console.log(error)
-        this.openSnackBar(error.error.mensaje);
+        console.log(error)
+        this.openSnackBar("Error al registrar el usuario");
       })
       
     }else{

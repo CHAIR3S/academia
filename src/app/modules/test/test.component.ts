@@ -169,11 +169,13 @@ export class TestComponent implements OnInit{
 
       localStorage.removeItem('usuario')
       localStorage.setItem('usuario', JSON.stringify(respuesta.object))
+
+      
+      // dialogRef.afterClosed().subscribe(result => {
+        this._router.navigate(['/chat'])
+      // });
     })
 
-    dialogRef.afterClosed().subscribe(result => {
-      this._router.navigate(['/chat'])
-    });
 
     // console.log('Tipo predominante de aprendizaje:', maxType);
     // console.log('Resultados:', results);
