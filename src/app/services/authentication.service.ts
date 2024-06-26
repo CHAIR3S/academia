@@ -1,108 +1,86 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http'; 
+import { HttpHeaders } from '@angular/common/http';
 import { OAuthService, AuthConfig } from 'angular-oauth2-oidc'; //dependencia instalada con npm que permite conectar con OpenID
 import { Subject } from 'rxjs';
 import { Usuario } from '../model/Usuario';
 
 
-const oAuthConfig: AuthConfig = { 
-  issuer: 'https://accounts.google.com',  // The authorization provider (google)
-  strictDiscoveryDocumentValidation: false,  // Checks if all url inits with the issuer url
-  redirectUri: 'http://localhost:4200',  // the url redirect after the usser is logged, it is the url that we provided in the oauth2 config on google console
-  clientId: '579235475447-pduk5pbcjcq7pjmm1ob54mihvu75g8ie.apps.googleusercontent.com',  //Configured in google console
-  scope: 'openid profile email' // Authorizations we need to access
-}
+// const oAuthConfig: AuthConfig = {
+//   issuer: 'https://accounts.google.com',  // The authorization provider (google)
+//   strictDiscoveryDocumentValidation: false,  // Checks if all url inits with the issuer url
+//   redirectUri: 'http://localhost:4200',  // the url redirect after the usser is logged, it is the url that we provided in the oauth2 config on google console
+//   clientId: '579235475447-pduk5pbcjcq7pjmm1ob54mihvu75g8ie.apps.googleusercontent.com',  //Configured in google console
+//   scope: 'openid profile email' // Authorizations we need to access
+// }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  userProfileSubject = new Subject<Usuario>();
-
-
-  constructor(
-
-    private readonly oAuthService: OAuthService
-
-  ) { 
-
+  constructor(private oauthService: OAuthService) {
+    this.configure();
   }
 
-
-  autenticarGoogle(){
-    this.oAuthService.configure(oAuthConfig);
-    this.oAuthService.loadDiscoveryDocument().then( () => {
-      this.oAuthService.tryLoginImplicitFlow().then( () => {
-
-        if(!this.oAuthService.hasValidAccessToken()){ // If the user is not logged
-          this.oAuthService.initLoginFlow();  // User put email and password
-        }
-        else{
-          this.oAuthService.loadUserProfile().then( (userProfile) => {
-            this.userProfileSubject.next(userProfile as Usuario); // Get the user profile data
-          })
-        }
-
-      })
-
-    })
+  private configure() {
+    this.oauthService.configure(authConfig);
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
 
-
-  getAuthHeader(): string {
-      return this.oAuthService.getAccessToken()
+  login() {
+    this.oauthService.initImplicitFlow();
   }
 
-  isLoggedIn(): boolean {
-    return this.oAuthService.hasValidAccessToken();
+  logout() {
+    this.oauthService.logOut();
   }
 
+  public get identityClaims() {
 
-  signOut() {
-    this.oAuthService.logOut();
+    var claims = this.oauthService.getIdentityClaims();
+    if (!claims) return null;
+
+    return claims;
   }
 
+  get token() {
+    return this.oauthService.getAccessToken();
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  // getVideoWatchTime(videoId: string) {
-  //   const auth = new google.auth.GoogleAuth({
-  //     keyFile: '../../../secrets.json',
-  //     scopes: ['https://www.googleapis.com/auth/youtube.readonly'],
-  //   });
-
-  //   const youtubeAnalytics = google.youtubeAnalytics({
-  //     version: 'v2',
-  //     auth,
-  //   });
-
-  //   const result = youtubeAnalytics.reports.query({
-  //     ids: 'channel==MINE',
-  //     startDate: '2023-07-01',
-  //     endDate: '2023-07-11',
-  //     metrics: 'views,estimatedMinutesWatched',
-  //     filters: `video==${videoId}`
-  //   }).then((result) => {
-  //     const data = result.data;
-  //     console.log(data);
-  //   });
-
-  //   return result;
-  // }
+  // Obtener detalles del usuario
+  get userInfo() {
+    // const claims = this.identityClaims;
+    // if (claims) {
+    //   return {
+    //     name: claims['name'],
+    //     email: claims['email'],
+    //     picture: claims['picture']
+    //   };
+    // }
+    // return null;
+    return this.identityClaims;
+  }
 
 }
+
+
+
+export const authConfig: AuthConfig = {
+  // URL del servidor de OAuth 2.0
+  issuer: 'https://accounts.google.com',
+
+  // URL del documento de descubrimiento de OpenID Connect
+  redirectUri: "http://localhost:4200/login",
+
+  // El ID de cliente que se generó en Google Cloud
+  clientId: '831273130160-4avvtn3ts95atdk8ovbb1i2okko01i2t.apps.googleusercontent.com',
+
+  // El scope de los datos a los que quieres acceder
+  scope: 'openid profile email',
+
+  // Cargar tokens usando el flujo implícito de OAuth
+  responseType: 'token id_token',
+
+  // El nombre del atributo de nombre en el id_token
+  strictDiscoveryDocumentValidation: false
+};

@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit{
     private _router: Router,
     private _cookiesService: CookieService,
     private _usuarioService: UsuarioService,
-    public _googleAuth: AuthenticationService
+    public _authService: AuthenticationService
   ) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -40,13 +40,13 @@ export class LoginComponent implements OnInit{
     });
 
     
-    this._googleAuth.userProfileSubject.subscribe( (data) => { //Gets user authenticated data
+    // this._googleAuth.userProfileSubject.subscribe( (data) => { //Gets user authenticated data
 
-      this.userProfile = data;
+    //   this.userProfile = data;
 
-      console.log(data);
+    //   console.log(data);
 
-    })
+    // })
 
 
     // this.authSubscription = this._googleAuth.userProfileSubject.subscribe({
@@ -65,6 +65,8 @@ export class LoginComponent implements OnInit{
 
   login(){
     // console.log(this.loginForm)
+    console.log('claims')
+    console.log(this.userInfo);
 
     if(this.loginForm.valid){
       const credenciales: AuthUserDTO = new AuthUserDTO();
@@ -118,7 +120,21 @@ export class LoginComponent implements OnInit{
     // console.log('logear google')
     // this._googleAuth.autenticarGoogle();
 
+    this._authService.login();
+    console.log('claims')
+    console.log(this.userInfo);
 
+  }
+
+
+  // get tokens() {
+  //   const claims = this._authService.identityClaims;
+  //   return claims ? claims['name'] : null;
+  // }
+
+
+  get userInfo() {
+    return this._authService.identityClaims;
   }
 
 }
