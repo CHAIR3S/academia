@@ -1,6 +1,8 @@
 import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterOutlet } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -32,7 +34,8 @@ export class LoginComponent implements OnInit{
     private _router: Router,
     private _cookiesService: CookieService,
     private _usuarioService: UsuarioService,
-    public _authService: AuthenticationService
+    public _authService: AuthenticationService,
+    public dialog: MatDialog
   ) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -141,5 +144,26 @@ export class LoginComponent implements OnInit{
   get userInfo() {
     return this._authService.identityClaims;
   }
+  
 
+  llama() {
+    
+    this.dialog.open(DialogElementsExampleDialog);
+  }
 }
+
+
+
+@Component({
+  selector: 'dialog-elements-example-dialog',
+  template: `
+  <h1 mat-dialog-title >Llama</h1>
+  <img src="https://clipart-library.com/images_k/llama-head-silhouette/llama-head-silhouette-18.png" alt="Llama" style="height: 51vh;">
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+  `,
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+})
+export class DialogElementsExampleDialog {}

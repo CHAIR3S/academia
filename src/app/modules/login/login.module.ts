@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CookieService } from 'ngx-cookie-service';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     LoginRoutingModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [
     CookieService
