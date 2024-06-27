@@ -1,4 +1,4 @@
-<div class=" conversation-area fixed" style="max-height: 80vh;" [ngClass]="{'slide-right': this._chatService.navbar}" [ngClass]="{'display-navbar': this._chatService.navbar}">
+<div class=" conversation-area fixed" style="max-height: 80vh;" [ngClass]="{'slide-right': !this._chatService.navbar}" [ngClass]="{'display-navbar': !this._chatService.navbar}">
   <div *ngFor="let chat of _chatService.chatList" class="msg" (click)="onChatSelect(chat)">
     <div class="msg-detail">
       <div class="msg-username">{{ chat.nombre }}</div>

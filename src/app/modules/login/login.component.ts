@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit{
   loginForm: FormGroup;
   focus = false;
   focus1 = false;
+  spinner = false;
 
 
   // authSubscription: Subscription;
@@ -65,10 +66,10 @@ export class LoginComponent implements OnInit{
 
   login(){
     // console.log(this.loginForm)
-    console.log('claims')
-    console.log(this.userInfo);
+    
 
     if(this.loginForm.valid){
+      this.spinner = true;
       const credenciales: AuthUserDTO = new AuthUserDTO();
       credenciales.correo = this.loginForm.value.email;
       credenciales.contrasena = this.loginForm.value.password;
@@ -90,11 +91,15 @@ export class LoginComponent implements OnInit{
           this.openSnackBar("Sesión iniciada correctamente");
 
           this._router.navigate(['/chat']);
+
+          this.spinner = false;
         },
         (error: any) => {
           // console.log(error.error.mensaje)
           // console.log(error)
           this.openSnackBar("Correo o contraseña incorrecta");
+          
+          this.spinner = false;
         }
       )
     }else{

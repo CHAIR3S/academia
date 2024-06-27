@@ -20,6 +20,8 @@ export class RegistroComponent {
   focus3 = false;
   focus4 = false;
 
+  spinner = false;
+
   constructor(
     private _snackBar: MatSnackBar,
     private _usuarioService: UsuarioService,
@@ -33,7 +35,7 @@ export class RegistroComponent {
       grade: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(2)]),
-      agreeTerms: new FormControl(false, Validators.requiredTrue)
+      // agreeTerms: new FormControl(false, Validators.requiredTrue)
     });
 
   }
@@ -54,6 +56,8 @@ export class RegistroComponent {
 
   onSubmit() {
     if (this.registerForm.valid) {
+      this.spinner = true;
+
       let registro: Usuario = new Usuario();
 
       registro.correo = this.registerForm.value.email;
@@ -86,12 +90,16 @@ export class RegistroComponent {
 
 
         this._router.navigate(['/login'])
+
+        this.spinner = false;
         
       },
       (error: any) => {
         // console.log(error.error.mensaje)
         console.log(error)
         this.openSnackBar("Error al registrar el usuario");
+
+        this.spinner = false;
       })
       
     }else{

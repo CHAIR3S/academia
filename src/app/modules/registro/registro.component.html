@@ -119,16 +119,17 @@
                     </small>
                   </div>
 
-                  <div class="image-upload-wrapper">
+                  <div class="image-upload-wrapper" >
                     <input type="file" id="userImage" accept="image/*" hidden (change)="onFileSelected($event)">
-                    <label for="userImage" class="image-upload-circle">
-                      <i class="fa fa-upload" *ngIf="!imageSrc"></i> 
+                    <label for="userImage" class="image-upload-circle"  style="border-color: #5e72e4;">
+
+                      <i class="fa fa-upload" *ngIf="!imageSrc" style="color: #5e72e4;"></i> 
                       <img id="preview" *ngIf="imageSrc" [src]="imageSrc" alt="User Image">
                     </label>
                   </div>
 
 
-                  <div class="row my-4">
+                  <!-- <div class="row my-4">
                     <div class="col-12">
                       <div class="custom-control custom-control-alternative custom-checkbox">
                         <input class="custom-control-input" id="customCheckRegister" type="checkbox" formControlName="agreeTerms">
@@ -139,9 +140,10 @@
                         </label>
                       </div>
                     </div>
-                  </div>
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary mt-4">Crear cuenta</button>
+                  </div> -->
+                  <div class="flex flex-center" style="padding-bottom: 2vh; margin-top: 5vh;">
+                    <mat-spinner style="height: 4.3vh; margin-top: 2vh;" *ngIf="spinner"></mat-spinner>
+                    <button type="submit" class="btn btn-primary" *ngIf="!spinner">Crear cuenta</button>
                   </div>
                 </form>
               </div>
