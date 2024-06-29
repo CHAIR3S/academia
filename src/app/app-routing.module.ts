@@ -12,22 +12,22 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    canActivate: [LoginGuard],
+    // canActivate: [LoginGuard],
     loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
   },
   {
     path: 'chat',
-    canActivate: [LoginGuard],
+    // canActivate: [LoginGuard],
     loadChildren: () => import('./modules/chat/chat.module').then(m => m.ChatModule)
   },
   {
     path: 'registro',
-    canActivate: [LoginGuard],
+    // canActivate: [LoginGuard],
     loadChildren: () => import('./modules/registro/registro.module').then(m => m.RegistroModule)
   },
   {
     path: 'test',
-    canActivate: [LoginGuard],
+    // canActivate: [LoginGuard],
     loadChildren: () => import('./modules/test/test.module').then(m => m.TestModule)
   },
   {

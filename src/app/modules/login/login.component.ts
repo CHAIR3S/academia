@@ -8,6 +8,7 @@ import { Router, RouterOutlet } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
 import { AuthUserDTO } from 'src/app/model/AuthUserDTO';
+import { User } from 'src/app/model/User';
 import { Usuario } from 'src/app/model/Usuario';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit{
 
 
   // authSubscription: Subscription;
-  userProfile: Usuario = new Usuario();
+  userData: User = new User;
 
 
   constructor(
@@ -43,6 +44,15 @@ export class LoginComponent implements OnInit{
       rememberMe: new FormControl(false)
     });
 
+    _authService.userProfileSubject.subscribe( (data) => { //Gets user authenticated data
+
+      this.userData = data;
+
+      console.log(data);
+
+    })
+
+    this._authService.handleAuthentication();
     
     // this._googleAuth.userProfileSubject.subscribe( (data) => { //Gets user authenticated data
 
@@ -68,7 +78,6 @@ export class LoginComponent implements OnInit{
 
 
   login(){
-    // console.log(this.loginForm)
     
 
     if(this.loginForm.valid){
@@ -125,12 +134,10 @@ export class LoginComponent implements OnInit{
   }
 
   loggearGoogle(){
-    // console.log('logear google')
-    // this._googleAuth.autenticarGoogle();
 
-    this._authService.login();
-    console.log('claims')
-    console.log(this.userInfo);
+    // this._authService.login();
+
+    this._authService.loginWithGoogle();
 
   }
 
@@ -141,9 +148,10 @@ export class LoginComponent implements OnInit{
   // }
 
 
-  get userInfo() {
-    return this._authService.identityClaims;
-  }
+  // userInfo() {
+  //   const data = JSON.stringify(this._authService.identityClaims());
+  //   console.log(data)
+  // }
   
 
   llama() {
