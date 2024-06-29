@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  baseUrl = environment.basePathUrl;
+  baseUrl = environment.BASE_URL_PATH;
 
   authUrl = '/auth'
 

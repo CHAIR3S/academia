@@ -9,7 +9,7 @@ import { Mensaje } from '../model/Mensaje';
   providedIn: 'root'
 })
 export class MensajeService {
-  baseUrl = environment.basePathUrl;
+  baseUrl = environment.BASE_URL_PATH;
 
   mensajeUrl = '/mensaje'
 

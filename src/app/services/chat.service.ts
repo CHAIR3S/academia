@@ -10,7 +10,7 @@ import { Mensaje } from '../model/Mensaje';
   providedIn: 'root'
 })
 export class ChatService {
-  baseUrl = environment.basePathUrl;
+  baseUrl = environment.BASE_URL_PATH;
 
   userUrl = '/chat'
 

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
-  baseUrl = environment.basePathUrl;
+  baseUrl = environment.BASE_URL_PATH;
 
   userUrl = '/usuario'
 
