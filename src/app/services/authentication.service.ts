@@ -3,13 +3,14 @@ import { HttpHeaders } from '@angular/common/http';
 import { OAuthService, AuthConfig } from 'angular-oauth2-oidc'; //dependencia instalada con npm que permite conectar con OpenID
 import { Subject } from 'rxjs';
 import { User } from '../model/User';
+import { CLIENT_ID } from 'src/common/environments/environments.desa';
 
 
 const oAuthConfig: AuthConfig = { 
   issuer: 'https://accounts.google.com',  // The authorization provider (google)
   strictDiscoveryDocumentValidation: false,  // Checks if all url inits with the issuer url
   redirectUri: window.location.origin + '/login',  // the url redirect after the usser is logged, it is the url that we provided in the oauth2 config on google console
-  clientId: '604629377452-9fqbfs9mmkld6i1be05snhnonv18vfb0.apps.googleusercontent.com',  //Configured in google console
+  clientId: CLIENT_ID.CLIENT_ID,  //Configured in google console
   dummyClientSecret: "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",
   scope: 'openid profile email', // Authorizations we need to access
   responseType: 'code',
