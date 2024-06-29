@@ -25,6 +25,9 @@ export class LoginGuard implements CanActivate {
     console.log(state.url);
 
     if (state.url.startsWith('/login')) {
+      if(this._authService.isLoggedIn() || this._cookiesService.check('token'))
+        this.router.navigate(['/chat']);
+
       // Allow the route if it is the login route, regardless of parameters
       return true;
     }
