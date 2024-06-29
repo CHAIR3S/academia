@@ -2,8 +2,11 @@
 
 export class User {
 
-        name = ''
-        email = ''
-        picture = ''
+        info: any = {
+                name:  '',
+                email: '',
+                picture: ''
+
+        }
         
 }

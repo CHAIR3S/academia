@@ -1,3 +1,4 @@
+import { RespuestaDTO } from './../../model/RespuestaDTO';
 import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -46,9 +47,48 @@ export class LoginComponent implements OnInit{
 
     _authService.userProfileSubject.subscribe( (data) => { //Gets user authenticated data
 
+      this.spinner = true;
       this.userData = data;
 
-      console.log(data);
+      // console.log(data);
+
+      if(this.userData){
+        const autenticarGoogle: AuthUserDTO  = new AuthUserDTO();
+        autenticarGoogle.correo = this.userData.info.email;
+        autenticarGoogle.googleJWT = _authService.getAuthHeader();
+        console.log(_authService.getAuthHeader());
+
+
+
+        if(_authService.isLoggedIn()){
+        _loginService.autenticar(autenticarGoogle).subscribe(respuesta => {
+
+            console.log(respuesta)
+            const userJSON = JSON.stringify(respuesta.object.usuario);
+  
+            
+  
+            const expirationDate = new Date();
+            expirationDate.setTime(expirationDate.getTime() + (2 * 60 * 60 * 1000)); // 2 horas en milisegundos
+            
+            this._cookiesService.set('token', respuesta.object.jwt, { expires: expirationDate, sameSite: 'Lax' })
+            // this._cookiesService.set('user', userJSON, { expires: expirationDate})
+            localStorage.setItem('usuario', userJSON)
+  
+            this.openSnackBar("Sesión iniciada correctamente");
+  
+            this._router.navigate(['/chat']);
+            this.spinner = false;
+
+          
+        },
+        (error: any) => {
+          this.spinner = false;
+          this.openSnackBar("Error de inicio de sesión");
+        }
+      )
+    }
+      }
 
     })
 

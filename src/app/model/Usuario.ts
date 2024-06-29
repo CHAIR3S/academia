@@ -21,6 +21,8 @@ export class Usuario {
 	foto: string = '';
 
     tipoAprendizaje?: TipoAprendizaje | null = null;
+	
+	googleJWT?: string;
 
     constructor() {
         this.tipoAprendizaje = null; 

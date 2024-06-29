@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthUserDTO } from 'src/app/model/AuthUserDTO';
+import { User } from 'src/app/model/User';
 import { Usuario } from 'src/app/model/Usuario';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { LoginService } from 'src/app/services/login.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -13,6 +18,9 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class RegistroComponent {
   registerForm: FormGroup;
   imageSrc: string | ArrayBuffer | null = null;
+  
+  // authSubscription: Subscription;
+  userData: User = new User;
 
   focus = false;
   focus1 = false;
@@ -25,7 +33,10 @@ export class RegistroComponent {
   constructor(
     private _snackBar: MatSnackBar,
     private _usuarioService: UsuarioService,
-    private _router: Router
+    private _router: Router,
+    private _authService: AuthenticationService,
+    private _loginService: LoginService,
+    private _cookiesService: CookieService
   ) {
     this.registerForm = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -37,6 +48,53 @@ export class RegistroComponent {
       password: new FormControl('', [Validators.required, Validators.minLength(2)]),
       // agreeTerms: new FormControl(false, Validators.requiredTrue)
     });
+
+
+    
+    _authService.userProfileSubject.subscribe( (data) => { //Gets user authenticated data
+
+      this.spinner = true;
+      this.userData = data;
+
+      // console.log(data);
+
+      if(this.userData){
+        const autenticarGoogle: AuthUserDTO  = new AuthUserDTO();
+        autenticarGoogle.correo = this.userData.info.email;
+        autenticarGoogle.googleJWT = _authService.getAuthHeader();
+        console.log(_authService.getAuthHeader());
+
+
+
+        _loginService.autenticar(autenticarGoogle).subscribe(respuesta => {
+          console.log(respuesta)
+          const userJSON = JSON.stringify(respuesta.object.usuario);
+
+          
+
+          const expirationDate = new Date();
+          expirationDate.setTime(expirationDate.getTime() + (2 * 60 * 60 * 1000)); // 2 horas en milisegundos
+          
+          this._cookiesService.set('token', respuesta.object.jwt, { expires: expirationDate, sameSite: 'Lax' })
+          // this._cookiesService.set('user', userJSON, { expires: expirationDate})
+          localStorage.setItem('usuario', userJSON)
+
+          this.openSnackBar("Sesión iniciada correctamente");
+
+          this._router.navigate(['/chat']);
+          this.spinner = false;
+          
+        },
+        (error: any) => {
+          this.spinner = false;
+          this.openSnackBar("Error de inicio de sesión");
+        }
+      )
+      }
+
+    })
+
+    this._authService.handleAuthentication();
 
   }
 
@@ -115,6 +173,14 @@ export class RegistroComponent {
     this._snackBar.open(message, 'Aceptar', {
       duration: 3000
     });
+  }
+
+  
+  loggearGoogle(){
+
+
+    this._authService.loginWithGoogle();
+
   }
 
 }

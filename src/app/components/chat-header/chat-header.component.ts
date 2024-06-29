@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Usuario } from 'src/app/model/Usuario';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class ChatHeaderComponent implements OnInit {
   constructor(
     private _cookieService: CookieService,
     private _router: Router,
-    public _chatService: ChatService
+    public _chatService: ChatService,
+    private _authService: AuthenticationService
   ){
 
   }
@@ -38,6 +40,7 @@ export class ChatHeaderComponent implements OnInit {
   cerrarSesion(){
     localStorage.removeItem('usuario')
     this._cookieService.delete('token')
+    this._authService.signOut;
     this._router.navigate(['login'])
   }
 
