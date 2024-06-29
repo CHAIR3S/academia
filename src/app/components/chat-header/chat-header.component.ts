@@ -40,7 +40,7 @@ export class ChatHeaderComponent implements OnInit {
   cerrarSesion(){
     localStorage.removeItem('usuario')
     this._cookieService.delete('token')
-    this._authService.signOut;
+    this._authService.signOut();
     this._router.navigate(['login'])
   }
 
